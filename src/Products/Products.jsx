@@ -23,7 +23,10 @@ const Products = () => {
 
         //Set the id and quantity in Local Storage
         addToDb(cartDetails.id)
+        setReload(!reload)
     }
+
+    const [reload, setReload] = useState(false);
 
     //Get details from Local Storage
     useEffect(() => {
@@ -43,7 +46,7 @@ const Products = () => {
         }
         setCart(localCart)
 
-    }, [products])
+    }, [products, reload])
 
     // console.log(cart)
 

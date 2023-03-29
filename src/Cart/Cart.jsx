@@ -8,7 +8,7 @@ const Cart = ({cart}) => {
     let totalShippingCost = 0
     let allQuantity = 0;
     for(const product of cart){
-        product.quantity = product.quantity || 1; 
+        // product.quantity = product.quantity || 1; 
         console.log(product)
         allQuantity = allQuantity + product.quantity;
         console.log(product.quantity)
