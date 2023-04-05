@@ -28,3 +28,20 @@
 .order-details h4{
     font-size: 20px;
 }
+
+.clear {
+    width: 90%;
+    margin: 10px auto;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+}
+.checkout {
+    width: 90%;
+    margin: 10px auto;
+    background-color: rgb(255, 129, 39);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+}

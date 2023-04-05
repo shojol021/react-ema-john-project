@@ -13,11 +13,9 @@
 
 .ordered-item button {
     
-    background-color: rgb(255, 94, 0);
+    background-color: rgb(255, 141, 41);
     color: white;
     width: 80px;
-    height: 30px;
-    margin: auto 0;
     margin-left: auto;
 }
 
@@ -27,4 +25,12 @@
 
 .ordered-item h5 {
     margin: 10px 10px;
+}
+
+.ordered-item .title {
+    color: rgb(170, 94, 27);
+}
+
+span {
+    color: rgb(206, 175, 0);
 }
