@@ -28,6 +28,11 @@ const Products = () => {
 
     const [reload, setReload] = useState(false);
 
+    const clearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
+
     //Get details from Local Storage
     useEffect(() => {
   
@@ -59,7 +64,8 @@ const Products = () => {
                 
             </div>
             <div>
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}
+                clearCart={clearCart}></Cart>
             </div>
         </div>
     );
