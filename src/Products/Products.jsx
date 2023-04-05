@@ -30,7 +30,7 @@ const Products = () => {
 
     //Get details from Local Storage
     useEffect(() => {
-        // console.log(products);
+  
         const storedCart = getShoppingCart()
 
         const localCart = [];
@@ -48,7 +48,6 @@ const Products = () => {
 
     }, [products, reload])
 
-    // console.log(cart)
 
     return (
         <div className='products'>
@@ -57,10 +56,7 @@ const Products = () => {
 
                     products.map(p => <Product key={p.id} {...p} addToCart={cartHandler}></Product>)
                 }
-
-                {/* {
-                    products.map(p=> console.log(p))
-                } */}
+                
             </div>
             <div>
                 <Cart cart={cart}></Cart>

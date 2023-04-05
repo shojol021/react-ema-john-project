@@ -1,0 +1,30 @@
+.ordered-item {
+    text-align: left;
+    width: 600px;
+    border: 2px solid orange;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: flex;
+}
+
+.ordered-item img {
+    width: 100px;
+}
+
+.ordered-item button {
+    
+    background-color: rgb(255, 94, 0);
+    color: white;
+    width: 80px;
+    height: 30px;
+    margin: auto 0;
+    margin-left: auto;
+}
+
+.ordered-item h3 {
+    margin: 10px 10px;
+}
+
+.ordered-item h5 {
+    margin: 10px 10px;
+}
