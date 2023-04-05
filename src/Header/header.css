@@ -18,3 +18,11 @@
     margin-right: 20px;
     color: white;
   }
+
+  .header a:hover {
+    font-family: 'Lato';
+    text-decoration: none;
+    margin-right: 20px;
+    color: rgb(255, 170, 73);
+    font-weight: bold;
+  }
