@@ -18,6 +18,7 @@ import Checkout from './Checkout/Checkout';
 import Signup from './assets/Signup/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthProvider from './assets/Auth/AuthProvider';
+import Forgot from './forgot/Forgot';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup></Signup>
+      },
+      {
+        path: '/recovery',
+        element: <Forgot></Forgot>
       }
     ]
   },
