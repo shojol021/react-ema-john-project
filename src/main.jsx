@@ -14,6 +14,9 @@ import Inventory from './Inventory/Inventory';
 import Login from './Login/Login';
 import OrderReview from './OrderReview/OrderReview';
 import cartProductsLoader from './loader/cartProductsLoader';
+import Checkout from './Checkout/Checkout';
+import Signup from './assets/Signup/Signup';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login></Login>
+      },
+      {
+        path: '/checkout',
+        element: <Checkout></Checkout>
+      },
+      {
+        path: '/signup',
+        element: <Signup></Signup>
       }
     ]
   },

@@ -1,0 +1,15 @@
+#form-container{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+#email{
+    margin-left: 10px;
+}
+
+#input-container{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
