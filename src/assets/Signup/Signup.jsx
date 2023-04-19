@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Auth/AuthProvider';
 
 const Signup = () => {
+
+    const naam = useContext(AuthContext)
+
+    const handleSignup = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password)
+    }
+
     return (
         <div className='w-25 mx-auto border px-4 py-4 mt-5' >
-            <h2>Please sign up</h2>
-            <Form>
+            <h2>Please sign up: {naam}</h2>
+            <Form onSubmit={handleSignup}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name address</Form.Label>
                     <Form.Control type="text" name='name' placeholder="Enter name" />
