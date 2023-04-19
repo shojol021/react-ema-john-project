@@ -17,7 +17,7 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     } 
     const resetPassword = (email) => {
-        sendPasswordResetEmail(auth, email)
+        return sendPasswordResetEmail(auth, email)
     }
 
     const authInfo = {
