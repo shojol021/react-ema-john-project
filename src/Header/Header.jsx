@@ -24,7 +24,7 @@ const Header = () => {
                 <Link to="/manage-inventory">Manage Inventory</Link>
                 {user ?
                     <>
-                        <span>{user.user.email}</span>
+                        <span>{user.email}</span>
                         <button className='btn btn-danger ms-2' onClick={handleLogOut}>Signout</button>
                     </> :
                     <>

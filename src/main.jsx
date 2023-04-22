@@ -37,11 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'order-review',
-        element: <OrderReview></OrderReview>
+        element: <PrivateRoute><OrderReview></OrderReview></PrivateRoute>
       },
       {
-        path: 'manage-inventory',
-        element: <Inventory></Inventory>
+        path: '/manage-inventory',
+        element: <PrivateRoute><Inventory></Inventory></PrivateRoute>
       },
       {
         path: 'login',
