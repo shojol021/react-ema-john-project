@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../assets/Auth/AuthProvider';
+import { FaFacebook, FaGoogle, FaTwitter } from 'react-icons/fa';
 
 const Login = () => {
 
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser, setUser } = useContext(AuthContext)
 
     const handleLogin = (event) => {
         setError('')
@@ -16,12 +17,16 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
 
         loginUser(email, password)
             .then(userDetails => {
-                console.log(userDetails)
+                if(!userDetails.user.emailVerified){
+                    setError('Please verify your email first')
+                    return
+                }
+                setUser(userDetails)
                 setSuccess("Logged in successfully")
+                form.reset()
             })
             .catch(error => {
                 console.log(error)
@@ -44,7 +49,12 @@ const Login = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <p><small>New to Ema-John? Signup<Link to='/signup' className='btn btn-link'>here</Link></small></p>
-                    <p><small>Or<Link to='/recovery' className='btn btn-link text-decoration-none'>forgot password?</Link></small></p>
+                    <p><small>Or, login with
+                        <span className='fs-4 ms-3 me-3 text-success'>< FaGoogle /></span>
+                        <span className='fs-4 me-3 text-primary'>< FaFacebook /></span>
+                        <span className='fs-4 text-info'>< FaTwitter /></span>
+                    </small></p>
+                    <p><small><Link to='/recovery' className='btn btn-link text-decoration-none'>Forgot password?</Link></small></p>
                 </Form.Group>
                 <p className='text-success'>{success}</p>
                 <p className='text-danger'>{error}</p>

@@ -19,6 +19,7 @@ import Signup from './assets/Signup/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthProvider from './assets/Auth/AuthProvider';
 import Forgot from './forgot/Forgot';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'orders',
-        element: <Orders></Orders>,
+        element: <PrivateRoute><Orders></Orders></PrivateRoute>,
         loader: cartProductsLoader
       },
       {
@@ -45,10 +46,6 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login></Login>
-      },
-      {
-        path: '/checkout',
-        element: <Checkout></Checkout>
       },
       {
         path: '/signup',

@@ -21,7 +21,7 @@ const Cart = ({cart, clearCart}) => {
     const grandTotal = totalPrice + totalShippingCost + totalTax;
 
     const goToCheckout = () => {
-        navigate('/checkout')
+        navigate('/orders')
     }
 
     return (

@@ -18,7 +18,6 @@ const Forgot = () => {
         e.preventDefault()
 
         const email = e.target.email.value;
-        console.log(email)
 
         resetPassword(email)
             .then(() => {

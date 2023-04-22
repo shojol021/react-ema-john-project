@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthProvider';
 
 const Signup = () => {
+
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
-    const { createUser } = useContext(AuthContext)
-    // console.log(loading, setLoading)
+    const {
+            createUser,
+            setUserName,
+            emailVerify
+        } = useContext(AuthContext)
 
     const handleSignup = (event) => {
         setError('')
@@ -18,7 +22,8 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        console.log(name, email, password)
+
+        setUserName(name)
 
         if (confirm !== password) {
             setError("Password doesn't match")
@@ -41,10 +46,13 @@ const Signup = () => {
 
         createUser(email, password)
             .then(userDetails => {
-                console.log(userDetails)
-                setSuccess('Logged in successfully!')
+                emailVerify(userDetails)
+                    .then(() => {
+                        setSuccess(`A varification mail sent to ${email}`)
+                    })
             })
             .catch(error => console.log(error))
+
     }
 
     return (

@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
 import './Orders.css'
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import OrderedItem from '../OrderedItem/OrderedItem';
 import { deleteShoppingCart, removeFromDb } from '../utilities/fakedb';
 
 const Orders = () => {
+    const navigate = useNavigate();
+
+    const goBack = () => {
+        navigate(-1)
+    }
     const savedCart = useLoaderData();
     const [cart, setCart] = useState(savedCart);
 
@@ -33,6 +38,7 @@ const Orders = () => {
                 <Cart cart={cart}
                 clearCart={clearCart}></Cart>
             </div>
+            <button className='btn btn-info w-25 mx-auto my-3' onClick={goBack}>Back</button>
         </div>
     );
 };
