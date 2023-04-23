@@ -8,11 +8,15 @@ const Login = () => {
 
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
-    const { loginUser, setUser, user } = useContext(AuthContext)
+    const [show, setShow] = useState(false)
+    const { loginUser, setUser, setLoading } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     console.log(location)
     const from = location?.state?.from?.pathname || '/'
+
+    let passwordType;
+    show? passwordType = 'text': passwordType = 'password';
 
     const handleLogin = (event) => {
         setError('')
@@ -31,6 +35,7 @@ const Login = () => {
                 setUser(userDetails)
                 setSuccess("Logged in successfully")
                 form.reset()
+                setLoading(false)
                 navigate(from)
 
             })
@@ -51,8 +56,9 @@ const Login = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' required placeholder="Password" />
+                    <Form.Control type={passwordType} name='password' required placeholder="Password" />
                 </Form.Group>
+                <p onClick={() => {setShow(!show)}} className='btn btn-link'><small>{show? 'Hide password': 'Show password'}</small></p>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <p><small>New to Ema-John? Signup<Link to='/signup' className='btn btn-link'>here</Link></small></p>
                     <p><small>Or, login with

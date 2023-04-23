@@ -51,7 +51,10 @@ const Signup = () => {
                         setSuccess(`A varification mail sent to ${email}`)
                     })
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error)
+                setError(error.message)
+            })
 
     }
 

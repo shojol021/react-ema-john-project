@@ -15,7 +15,7 @@ const Orders = () => {
     const [cart, setCart] = useState(savedCart);
 
     const remainItems = id => {
-        const remainingItems = cart.filter(product => product.id !==id )
+        const remainingItems = cart.filter(product => product.id !== id)
         setCart(remainingItems);
         removeFromDb(id)
     }
@@ -24,23 +24,28 @@ const Orders = () => {
         setCart([]);
         deleteShoppingCart();
     }
-    return (
-        <div className='products'>
-            <div className=''>
-                {
-                    cart.map(product => <OrderedItem
-                    key={product.id}
-                    product = {product}
-                    remainItems={remainItems}></OrderedItem>)
-                }
+
+    if (cart.length === 0) {
+        return <h3 className='text-center'>You have not added any product yet</h3>
+    } else {
+        return (
+            <div className='products'>
+                <div className=''>
+                    {
+                        cart.map(product => <OrderedItem
+                            key={product.id}
+                            product={product}
+                            remainItems={remainItems}></OrderedItem>)
+                    }
+                </div>
+                <div>
+                    <Cart cart={cart}
+                        clearCart={clearCart}></Cart>
+                </div>
+                <button className='btn btn-info w-25 mx-auto my-3' onClick={goBack}>Back</button>
             </div>
-            <div>
-                <Cart cart={cart}
-                clearCart={clearCart}></Cart>
-            </div>
-            <button className='btn btn-info w-25 mx-auto my-3' onClick={goBack}>Back</button>
-        </div>
-    );
+        );
+    }
 };
 
 export default Orders;
